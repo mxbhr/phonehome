@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>phonehome</title>
+  <meta name="description" content="See which apps on your machine phone home, and to whom." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Ccircle cx=%2216%22 cy=%2216%22 r=%2214%22 fill=%22%23bfd6df%22 stroke=%22%2314242c%22 stroke-width=%222%22/%3E%3Cpath d=%22M6 22C12 8 20 8 26 14%22 fill=%22none%22 stroke=%22%23e63946%22 stroke-width=%223%22 stroke-linecap=%22round%22/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="layout">
+    <section class="map" aria-label="Globe of outgoing connections">
+      <canvas id="globe" role="img" aria-label="Globe showing one line per application and destination country. The same information is listed in the panel."></canvas>
+      <div id="tooltip" class="tooltip" hidden></div>
+      <p class="map-note" id="origin-note"></p>
+    </section>
+
+    <aside class="log">
+      <header class="log-head">
+        <div class="brand">
+          <h1>phonehome</h1>
+          <span id="status" class="status"></span>
+        </div>
+        <p id="headline" class="headline"></p>
+        <p id="subline" class="subline"></p>
+        <p id="notice" class="notice" hidden></p>
+      </header>
+
+      <div class="log-tools">
+        <button type="button" id="show-all" hidden>Show all apps</button>
+      </div>
+
+      <ol id="apps" class="apps"></ol>
+
+      <footer class="log-foot">
+        <p><span class="tag">hosting</span> marks clouds and CDNs. Data sent there is stored or relayed by them for another company, which this tool cannot name.</p>
+        <p>Countries come from public IP registries and can be wrong for global networks.</p>
+      </footer>
+    </aside>
+  </main>
+
+  <script src="vendor/d3-array.min.js"></script>
+  <script src="vendor/d3-geo.min.js"></script>
+  <script src="vendor/topojson-client.min.js"></script>
+  <script src="demo.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
